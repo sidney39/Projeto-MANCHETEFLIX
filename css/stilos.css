@@ -1,0 +1,264 @@
+/*-------------------------fORMATAÇÃO DO CSS-----------------------*/
+
+:root{
+	--vermelho: #e50914;
+	--preta: #141414;
+}
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+::-webkit-scrollbar{
+	width: 10px;
+}
+::-webkit-scrollbar-thumb{
+	background: var(--vermelho);
+	border-radius: 15px;
+}
+
+body{
+	margin: 0 auto;
+	background: var(--preta);
+	color: white;
+	font-family: "Times New Roman" , Times, serif;
+}
+
+/*----------------------------MENU DE NAVEGAÇÃO---------------------------*/
+.navbar{
+	width: 100%;
+	height: 70px;
+	padding: 0 40px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.navbar .logo{
+	color: var(--vermelho);
+	font-family: "Arial Black", Times;
+	font-size: 40px;
+}
+.navbar .menu{
+	display: flex;
+	list-style: none;
+}
+.navbar .menu li{
+	margin: 0 5px;
+}
+.navbar .menu li a{
+	text-decoration: none;
+	color: #aaa;
+}
+.navbar .menu li a:hover{
+	color: #fff;
+}
+
+/*--------------------------------HEADER------------------------------*/
+
+.slideshow{
+	width: 100%;
+	height: 565px;
+	position: relative;
+	overflow: hidden;
+}
+.slideshow-item{
+   width: inherit;
+   height: inherit;
+   position: absolute;
+   opacity: 0;
+   animation: cycleImage 31s infinite;
+}
+
+
+.slideshow-item img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	animation: zoom 31s infinite;
+
+}
+
+.slideshow-item:nth-child(1),
+.slideshow-item:nth-child(1) img{
+	animation-delay: 0s;
+}
+.slideshow-item:nth-child(2),
+.slideshow-item:nth-child(2) img{
+	animation-delay: 10s;
+}
+.slideshow-item:nth-child(3),
+.slideshow-item:nth-child(3) img{
+	animation-delay: 20s;
+}
+
+.slider-item-text{
+	width: 100%;
+    height: 565px;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	padding: 10px 40px;
+	transform: translateY(-50%);
+	background-color: rgba(0,0,0,.6);
+	color: #fff;
+	z-index: 10;
+	/*padding: 10rem 5rem;*/
+	
+}
+.slider-item-text .text{
+	margin-top: 200px;
+	width: 60%;
+	height: 350px;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+
+}
+.slider-item-text .text h5{
+	font-size: 40px;
+	font-family: 'Trabuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans', Arial, sans-serif;
+}
+.slider-item-text .text p{
+	font-size: 20px;
+    margin-bottom: 40px;
+	margin-top: 10px;
+}
+.botao{
+	background-color: rgba(0,0,0,.7);
+	border: none;
+	color: white;
+	padding: 15px 30px;
+	margin: 10px;
+	font-size: 12px;
+	cursor: pointer;
+	transition: .3s ease all;
+	outline: none;
+}
+.botao:hover{
+	background-color: white;
+	color: #000;
+}
+.botao i{
+	margin-right: 8px; 
+}
+
+/*-----------------------------AREA CARROSSEL---------------------------*/
+
+.carrosel-filmes{
+	margin-top: 10px;
+}
+.item{
+	width: 100%;
+	height: 100%;
+}
+.item .btn{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	padding: 5px 10px;
+	background: tomato;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Arial', sans-serif;
+	transition: .5s;
+}
+.btn:hover{
+	background: var(--vermelho);
+}
+.video-player{
+	width: 60%;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	display: none;
+	z-index: 999;
+}
+video:focus{
+	outline: none;
+}
+.close-btn{
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 30px;
+	cursor: pointer;
+}
+
+
+
+/*-----------------------------AREA KEYFRAMES-----------------------------*/
+
+@keyframes cycleImage{
+	25%{
+       opacity: 1;
+	}
+	40%{
+		opacity: 0;
+	}
+}
+@keyframes zoom{
+	100%{
+		transform: scale(1.2);
+	}
+}
+
+/*----------------------------AREA MEDIAS---------------------------------*/
+@media (max-width: 770px){
+	.slideshow{
+		height: 650px;
+	}
+	.navbar{
+		margin: 15px 0;
+		display: flex;
+		flex-direction: column;
+	}
+	.slider-item-text{
+		height: 650px;
+	}
+	.text{
+		max-width: 100%;
+		padding:  2rem;
+		top: initial;
+		margin-top: 300px;
+		bottom: 0;
+		transform: initial;
+	}
+	.text h5{
+		font-size: 3rem;
+	}
+	.text p{
+		font-size: 1.4rem;
+	}
+	.botao{
+		display: flex;
+		flex-direction: column;
+		padding: 10px 20px;
+	    margin-top: -30px;
+	    margin: 5px;
+	    font-size: 12px;
+	}
+	.botao i{
+		display: none;
+	}
+
+}
+@media (max-width: 630px){
+	.navbar .logo{
+		font-size: 30px;
+	}
+	.slider-item-text{
+		padding: 5px 10px;
+	}
+    .text{
+    	min-width: 100%;
+    }
+    .video-player{
+    	width: 80%;
+    }
+}

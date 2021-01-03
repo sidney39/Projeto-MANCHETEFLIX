@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Mancheteflix</title>
+        <link rel="icon" href="img/icon.png">
+
+<!--------------------------------CSS INLINE DA TELA INICIAL--------------------------> 
+
+        <style type="text/css">       
+            @import url('https://fonts.googleapis.com/css?family=Dosis:200,400');
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+            	width: 100%;
+            	height: 100vh;
+                overflow: hidden;
+                background:linear-gradient(rgba(0,0,0,0.95),rgba(0,0,0,0.95) 100%), url(./img/fundo.JPG);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                
+            }
+            .area{
+            	width: 100%;
+            	height: 40vh;
+            	display: flex;
+            	justify-content: center;
+            	align-items: center;
+            }
+            h1.neon-titulo {
+                color: #fff;
+                font-family: 'Dosis', Calibri, sans-serif;
+                text-transform: uppercase;
+                font-size: 150px;
+                font-weight: 200;
+                text-align: center;
+            }
+            h1.neon-titulo.primeiro {
+                text-shadow: 0px 0px 10px #9D00FF,
+                    0px 0px 20px #9D00FF,
+                    0px 0px 30px #9D00FF,
+                    0px 0px 40px #9D00FF,
+                    0px 0px 50px #9D00FF,
+                    0px 0px 60px #9D00FF;
+            }
+           
+            .abrir h1.neon-titulo.segundo{
+                width: 100%;
+                height: 10%;
+            	font-size: 120px;
+                text-shadow: 0px 0px 10px #33FF00,
+                    0px 0px 20px #33FF00,
+                    0px 0px 30px #33FF00,
+                    0px 0px 40px #33FF00,
+                    0px 0px 50px #33FF00,
+                    0px 0px 60px #33FF00;
+                animation: pulsante 3s infinite;
+            }
+            span{
+            	color: tomato;
+            }
+
+            .botao{
+            	width: 100%;
+            	height: 15vh;
+            	margin-top: 50px;
+            	display: flex;
+            	justify-content: center;
+            	align-items: center; 
+            }
+            .botao a{
+            	font-family: 'Dosis', Calibri, sans-serif;
+            	position: relative;
+            	display: inline-block;
+            	padding: 25px 30px;
+            	color: #03e9f4;
+            	font-size: 24px;
+            	text-decoration: none;
+            	text-transform: uppercase;
+            	transition: 0.5s;
+            	overflow: hidden;
+            	letter-spacing: 4px;
+            	-webkit-box-reflect: below 1px linear-gradient(transparent,#0005);
+            }
+            
+            .botao a:hover{
+            	background: #03e9f4;
+            	color: #050801;
+            	box-shadow: 0 0 5px #03e9f4,
+            	            0 0 25px #03e9f4,
+            	            0 0 50px #03e9f4,
+            	            0 0 200px #03e9f4;
+            }
+
+            .botao a span{
+            	position: absolute;
+            	display: block;
+            }
+     
+            a:nth-child(1){
+            	filter: hue-rotate(290deg);
+            }
+            a:nth-child(3){
+            	filter: hue-rotate(110deg);
+            }
+            .botao a span:nth-child(1){
+            	top: 0;
+            	left: 100%;
+            	width: 100%;
+            	height: 2px;
+            	background: linear-gradient(90deg,transparent,#03e9f4);
+            	animation: animate1 1s linear infinite;
+            }
+            @keyframes animate1{
+            	0%{
+            		left: -100%;
+            	}
+            	50%, 100%{
+            		left: 100%;
+            	}
+            }
+            .botao a span:nth-child(2){
+            	top: -100%;
+            	right: 0;
+            	width: 2px;
+            	height: 100%;
+            	background: linear-gradient(180deg,transparent,#03e9f4);
+            	animation: animate2 1s linear infinite;
+            	animation-delay: 0.25s;
+            }
+            @keyframes animate2{
+            	0%{
+            		top: -100%;
+            	}
+            	50%, 100%{
+            		top: 100%;
+            	}
+            }
+            .botao a span:nth-child(3){
+            	bottom: 0;
+            	right: -100%;
+            	width: 100%;
+            	height: 2px;
+            	background: linear-gradient(270deg,transparent,#03e9f4);
+            	animation: animate3 1s linear infinite;
+            	animation-delay: 0.5s;
+            }
+            @keyframes animate3{
+            	0%{
+            		right: -100%;
+            	}
+            	50%, 100%{
+            		right: 100%;
+            	}
+            }
+            .botao a span:nth-child(4){
+            	bottom: 100%;
+            	left: 0;
+            	width: 2px;
+            	height: 100%;
+            	background: linear-gradient(360deg,transparent,#03e9f4);
+            	animation: animate4 1s linear infinite;
+            	animation-delay: 0.75s;
+            }
+            @keyframes animate4{
+            	0%{
+            		bottom: -100%;
+            	}
+            	50%, 100%{
+            		bottom: 100%;
+            	}
+            }
+
+            /* efeito-neon */
+
+            span.efeito-neon-1 {
+                animation: efeito-neon-1 6s infinite;
+            }
+            span.efeito-neon-2 {
+                animation: efeito-neon-2 3s infinite;
+            }
+            span.efeito-neon-3 {
+                animation: efeito-neon-3 5s infinite;
+            }
+            
+            /* ANIMATIONS */
+            @keyframes pulsante {
+                0% {
+                    text-shadow: 0px 0px 0px;
+                    opacity: 0;
+                }
+                50% {
+                    text-shadow: 0px 0px 10px #33FF00,
+                        0px 0px 20px #33FF00,
+                        0px 0px 30px #33FF00,
+                        0px 0px 40px #33FF00,
+                        0px 0px 50px #33FF00,
+                        0px 0px 60px #33FF00;
+                    opacity: 1;
+                }
+                100% {
+                    text-shadow: 0px 0px 0px;
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes efeito-neon-1 {
+                0% { opacity: 1; }
+                52% { opacity: 1; }
+                55% { opacity: 0; }
+                56% { opacity: 1; }
+                100% { opacity: 1; }
+            }
+            
+            @keyframes efeito-neon-2 {
+                0% { opacity: 1; }
+                62% { opacity: 1; }
+                65% { opacity: 0; }
+                66% { opacity: 1; }
+                69% { opacity: 0; }
+                70% { opacity: 1; }
+                73% { opacity: 0; }
+                74% { opacity: 1; }
+                100% { opacity: 1; }
+            }
+            
+            @keyframes efeito-neon-3 {
+                0% { opacity: 1; }
+                82% { opacity: 1; }
+                84% { opacity: 0; }
+                85% { opacity: 1; }
+                87% { opacity: 0; }
+                88% { opacity: 1; }
+                90% { opacity: 0; }
+                91% { opacity: 1; }
+                100% { opacity: 1; }
+            } 
+
+            @media (max-width: 980px){
+                
+                 .area h1.neon-titulo{
+                    font-size: 80px;
+                 }
+                 .abrir h1.neon-titulo.segundo{
+                    font-size: 90px;
+                 }
+            }   
+             @media (max-width: 550px){
+                 .area h1.neon-titulo{
+                    font-size: 60px;
+                 }
+                 .abrir h1.neon-titulo.segundo{
+                    font-size: 60px;
+                 }
+             }     
+        </style>
+    </head>
+    <body>
+
+ <!-----------------------------------HTML DA TELA INICIAL--------------------------------->  
+
+        <div class="area">
+            <h1 class="neon-titulo primeiro"><span class="efeito-neon-3">Man</span><span class="efeito-neon-1">che</span><span class="efeito-neon-3">te</span> <span class="efeito-neon-2">fl</span><span class="efeito-neon-3">ix</span></h1>
+        </div>
+        <div class="abrir"><h1 class="neon-titulo segundo">Abrir</h1></div>
+        <div class="botao">
+        	<a href="taglink/manchete.html">
+        		<span></span>
+        		<span></span>
+        		<span></span>
+        		<span></span>
+        		Saiba Mais
+        	</a>
+        </div>
+
+    </body>
+</html>
